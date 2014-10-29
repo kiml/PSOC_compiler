@@ -1,6 +1,4 @@
-PROG = demo
-
-all: $(PROG)
+FILEDIR := $(dir $(lastword $(MAKEFILE_LIST)))
 
 ARCH=arm-none-eabi-
 
@@ -8,10 +6,13 @@ CC=$(ARCH)gcc
 LD=$(ARCH)ld
 AS=$(ARCH)as
 AR=$(ARCH)ar
+CPP=$(ARCH)cpp
 RANLIB=$(ARCH)ranlib
 STRIP=$(ARCH)strip
+OBJCOPY=$(ARCH)objcopy
+OBJDUMP=$(ARCH)objdump
+NM=$(ARCH)nm
 
-INCS = -I .
 # CDEFS= -D__STARTUP_CLEAR_BSS -nostdlib -nostartupfiles
 # CDEFS= -D__STARTUP_CLEAR_BSS
 CDEFS=
@@ -19,12 +20,4 @@ ASDEFS=
 ARCHFLAGS = -mcpu=cortex-m3 -march=armv7-m -mthumb -mthumb-interwork
 CFLAGS  = $(ARCHFLAGS) $(INCS) $(CDEFS) $(DEFS)
 ASFLAGS = $(ARCHFLAGS) $(INCS) $(ASDEFS) $(DEFS)
-LDSCRIPT = -T gcc.ld
-
-OBJS = main.o startup.o startup_ARMCM3.o
-
-$(PROG):  $(OBJS) gcc.ld
-	$(LD) $(LDSCRIPT) $(OBJS) -o $@
-
-clean:
-	$(RM) *.o $(PROG)
+LDSCRIPT = $(FILEDIR)gcc.ld

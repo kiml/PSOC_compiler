@@ -33,8 +33,15 @@ To provide some open source support for the PSoC.
 Short version - the mountain was there so I climbed it :-)
 
 
+#####Getting Started
+To use the programmer, edit conf/programmer.mak and change the UTILSPATH to point to the directory that contains bin/ and config/ of the programmer git repo.
+
 #####Dirs
 
 * demo1 - A basic demo to get started with bare metal. It's more about showing the compiler/linker options and interacting with the peer programmer tools than making a working program.
-* demo2 - Hello World. This is a minimal working PSOC5LP program that flashes lights and outputs to the LCD
+* demo2* - Hello World. This is a minimal working PSOC5LP program that flashes lights and outputs to the LCD
+    demo2a - no config.hex, 'std' nm.hex, all config done in code.
+    demo2b - Cypress compat config.hex, 'std' nm.hex, config done in mix code/data. Basically  Cypress devkit model, but open source code.
+    demo2c - My own app_data config format. Removes need for much custom register init config in code. 'std' nm.hex??. Config format is NOT Cypress compatible.
+
 * demo3 - Compiling a Cypress devkit app (partial)

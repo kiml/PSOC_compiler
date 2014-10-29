@@ -13,4 +13,5 @@ Run make to compile this app.
 
 Note (after all your effort) the app does absolutely nothing - it's an empty app to understand the compile and link process.
 
+Note this makefile is all-in one so you can see the workings and hack it simply. Later demos use the included makefile framework.
 
