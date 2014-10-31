@@ -16,8 +16,8 @@
     along with this Program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "cmsis_alt.h"
 #include "psoc5.h"
-#include "baselib.h"
 #include "config.h"
 
 
@@ -76,7 +76,7 @@ void SystemInit(void)
     REG_SET_32(REG_NVIC_APPLN_INTR, (NVIC_APPLN_INTR__VECTKEY__KEY | CONFIG_NVIC_PRIORITY_GROUP));
     REG_OR_32(REG_NVIC_CFG_CONTROL, NVIC_CFG_CONTROL__STKALIGN);
 
-    global_interrupts_enable(false);
+    __disable_irq();
 
     // Enable cache and set flash_cycles assuming max clock (50-67MHz)
     REG_SET_8(REG_CACHE_CC_CTL, ((CONFIG_INSTRUCTION_CACHE_ENABLED) ? 0x01 : 0x00));

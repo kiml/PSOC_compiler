@@ -56,38 +56,38 @@ __isr_vector:
 	.long	SysTick_Handler       /* SysTick Handler */
 
 	/* 32 IRQs */
-	.long	Default_IRQ_Handler       ;  //  0: Low V. Detect    / phub_to_0[0]  / usb_int[0]
-	.long	Default_IRQ_Handler       ;  //  1: Cache            / phub_to_0[1]  / usb_int[1]
-	.long	0                         ;  //  2: Reserved         / phub_to_0[2]  / usb_int[2]
-	.long	Default_IRQ_Handler       ;  //  3: Pwr Mgr          / phub_to_0[3]  / usb_int[3]
-	.long	Default_IRQ_Handler       ;  //  4: PICU[0]          / phub_to_0[4]  / usb_int[4]
-	.long	Default_IRQ_Handler       ;  //  5: PICU[1]          / phub_to_0[5]  / usb_int[5]
-	.long	Default_IRQ_Handler       ;  //  6: PICU[2]          / phub_to_0[6]  / usb_int[6]
-	.long	Default_IRQ_Handler       ;  //  7: PICU[3]          / phub_to_0[7]  / usb_int[7]
-	.long	Default_IRQ_Handler       ;  //  8: PICU[4]          / phub_to_0[8]  / usb_int[8]
-	.long	Default_IRQ_Handler       ;  //  9: PICU[5]          / phub_to_0[9]  / usb_int[9]
-	.long	Default_IRQ_Handler       ;  // 10: PICU[6]          / phub_to_0[10] / usb_int[10]
-	.long	Default_IRQ_Handler       ;  // 11: PICU[12]         / phub_to_0[11] / usb_int[11]
-	.long	Default_IRQ_Handler       ;  // 12: PICU[15]         / phub_to_0[12] / usb_int[12]
-	.long	Default_IRQ_Handler       ;  // 13: Comparators      / phub_to_0[13] / usb_int[13]
-	.long	Default_IRQ_Handler       ;  // 14: Sw. Caps         / phub_to_0[14] / usb_int[14]
-	.long	Default_IRQ_Handler       ;  // 15: I2C              / phub_to_0[15] / usb_int[15]
-	.long	0                         ;  // 16: Reserved         / phub_to_1[0] / usb_int[16]
-	.long	0                         ;  // 17: Reserved         / phub_to_1[1] / usb_int[17]
-	.long	0                         ;  // 18: Reserved         / phub_to_1[2] / usb_int[18]
-	.long	0                         ;  // 19: Reserved         / phub_to_1[3] / usb_int[19]
-	.long	0                         ;  // 20: Reserved         / phub_to_1[4] / usb_int[20]
-	.long	Default_IRQ_Handler       ;  // 21: USB SOF Int      / phub_to_1[5] / usb_int[21]
-	.long	Default_IRQ_Handler       ;  // 22: USB Arb Int      / phub_to_1[6] / usb_int[22]
-	.long	Default_IRQ_Handler       ;  // 23: USB Bus Int      / phub_to_1[7] / usb_int[23]
-	.long	Default_IRQ_Handler       ;  // 24: USB EP0          / phub_to_1[8] / usb_int[24]
-	.long	Default_IRQ_Handler       ;  // 25: USB EP Data      / phub_to_1[9] / usb_int[25]
-	.long	0                         ;  // 26: Reserved         / phub_to_1[10] / usb_int[26]
-	.long	0                         ;  // 27: Reserved         / phub_to_1[11] / usb_int[27]
-	.long	Default_IRQ_Handler       ;  // 28: DFB Int          / phub_to_1[12] / usb_int[28]
-	.long	Default_IRQ_Handler       ;  // 29: Decimator Int    / phub_to_1[13] / usb_int[29]
-	.long	Default_IRQ_Handler       ;  // 30: phub_err_int     / phub_to_1[14] / usb_int[30]
-	.long	Default_IRQ_Handler       ;  // 31: eeprom_fault_int / phub_to_1[15] / usb_int[31]
+	.long	Default_IRQ_Handler   /*   0: Low V. Detect    / phub_to_0[0]  / usb_int[0] */
+	.long	Default_IRQ_Handler   /*   1: Cache            / phub_to_0[1]  / usb_int[1] */
+	.long	0                     /*   2: Reserved         / phub_to_0[2]  / usb_int[2] */
+	.long	Default_IRQ_Handler   /*   3: Pwr Mgr          / phub_to_0[3]  / usb_int[3] */
+	.long	Default_IRQ_Handler   /*   4: PICU[0]          / phub_to_0[4]  / usb_int[4] */
+	.long	Default_IRQ_Handler   /*   5: PICU[1]          / phub_to_0[5]  / usb_int[5] */
+	.long	Default_IRQ_Handler   /*   6: PICU[2]          / phub_to_0[6]  / usb_int[6] */
+	.long	Default_IRQ_Handler   /*   7: PICU[3]          / phub_to_0[7]  / usb_int[7] */
+	.long	Default_IRQ_Handler   /*   8: PICU[4]          / phub_to_0[8]  / usb_int[8] */
+	.long	Default_IRQ_Handler   /*   9: PICU[5]          / phub_to_0[9]  / usb_int[9] */
+	.long	Default_IRQ_Handler   /*  10: PICU[6]          / phub_to_0[10] / usb_int[10] */
+	.long	Default_IRQ_Handler   /*  11: PICU[12]         / phub_to_0[11] / usb_int[11] */
+	.long	Default_IRQ_Handler   /*  12: PICU[15]         / phub_to_0[12] / usb_int[12] */
+	.long	Default_IRQ_Handler   /*  13: Comparators      / phub_to_0[13] / usb_int[13] */
+	.long	Default_IRQ_Handler   /*  14: Sw. Caps         / phub_to_0[14] / usb_int[14] */
+	.long	Default_IRQ_Handler   /*  15: I2C              / phub_to_0[15] / usb_int[15] */
+	.long	0                     /*  16: Reserved         / phub_to_1[0] / usb_int[16] */
+	.long	0                     /*  17: Reserved         / phub_to_1[1] / usb_int[17] */
+	.long	0                     /*  18: Reserved         / phub_to_1[2] / usb_int[18] */
+	.long	0                     /*  19: Reserved         / phub_to_1[3] / usb_int[19] */
+	.long	0                     /*  20: Reserved         / phub_to_1[4] / usb_int[20] */
+	.long	Default_IRQ_Handler   /*  21: USB SOF Int      / phub_to_1[5] / usb_int[21] */
+	.long	Default_IRQ_Handler   /*  22: USB Arb Int      / phub_to_1[6] / usb_int[22] */
+	.long	Default_IRQ_Handler   /*  23: USB Bus Int      / phub_to_1[7] / usb_int[23] */
+	.long	Default_IRQ_Handler   /*  24: USB EP0          / phub_to_1[8] / usb_int[24] */
+	.long	Default_IRQ_Handler   /*  25: USB EP Data      / phub_to_1[9] / usb_int[25] */
+	.long	0                     /*  26: Reserved         / phub_to_1[10] / usb_int[26] */
+	.long	0                     /*  27: Reserved         / phub_to_1[11] / usb_int[27] */
+	.long	Default_IRQ_Handler   /*  28: DFB Int          / phub_to_1[12] / usb_int[28] */
+	.long	Default_IRQ_Handler   /*  29: Decimator Int    / phub_to_1[13] / usb_int[29] */
+	.long	Default_IRQ_Handler   /*  30: phub_err_int     / phub_to_1[14] / usb_int[30] */
+	.long	Default_IRQ_Handler   /*  31: eeprom_fault_int / phub_to_1[15] / usb_int[31] */
         
 	.size	__isr_vector, . - __isr_vector
 

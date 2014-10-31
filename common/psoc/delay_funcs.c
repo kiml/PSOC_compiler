@@ -1,10 +1,6 @@
 #include <stdint.h>
-#include <stdbool.h>
 
-#include "psoc_regmacro.h"
-#include "psoc_registers.h"
-
-#include "baselib.h"
+#include "psoc_support.h"
 
 
 static uint32_t Ticks_per_ms;
@@ -12,31 +8,24 @@ static uint8_t  Ticks_per_us;
 static uint32_t Delay_32k_ms_ticks; // specific delay of 32k ms in units of ticks
 
 
-void global_interrupts_enable(bool enable)
-{
-    if (enable)
-        __asm("CPSIE i");
-    else
-        __asm("CPSID i");
-}
-
-void halt(void)
-{
-    __asm("BKPT 0x01");
-}
-
-
-void soft_reset(void) 
-{
-    REG_SET_8(REG_RESET_CR2, 0x01);
-}
-
-
 //  Note: Delay funcs assume instruction cache is enabled.
 //  If not actual delays are twice expected.
 //  If the bus clock frequency is a small non-integer number, the actual delay
 //  can be up to twice as long as the nominal value. The actual delay cannot be
 //  shorter than the nominal value.
+
+// ticks per ms will have better resolution/precision that ticks_per_us
+uint32_t sysclock_ticks_per_ms(void)
+{
+    return Ticks_per_ms;
+}
+
+#if 0
+uint8_t sysclock_ticks_per_us(void)
+{
+    return Ticks_per_us;
+}
+#endif
 
 void delay_ms(uint32_t milliseconds)
 {

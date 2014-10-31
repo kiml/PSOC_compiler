@@ -21,7 +21,7 @@ CFLAGS  = $(ARCHFLAGS) $(INCS) $(CDEFS) $(DEFS)
 ASFLAGS = $(ARCHFLAGS) $(INCS) $(ASDEFS) $(DEFS)
 LDSCRIPT = -T gcc.ld
 
-OBJS = main.o startup.o startup_ARMCM3.o
+OBJS = main.o startup.o systeminit.o startup_ARMCM3.o
 
 $(PROG):  $(OBJS) gcc.ld
 	$(LD) $(LDSCRIPT) $(OBJS) -o $@

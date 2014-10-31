@@ -1,6 +1,6 @@
 Demo 2b - LCD and LED
 ---------------------
-This demo flashes LED2 at 1Hz and turns on LED1 whilst SW2 is pressed (P6_1)
+This demo flashes LED2 at 0.5Hz and turns on LED1 whilst SW2 is pressed (P6_1)
 
 Differences from demo 2a:
   * Uses config data

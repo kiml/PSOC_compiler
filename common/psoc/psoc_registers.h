@@ -164,7 +164,43 @@
 
 #define SLOWCLK_ILO__DIV3_EN    0x20
 
+// TRM 1.3.43 Internal Low-speed Oscillator Control Reg 1
+#define REG_SLOWCLK_ILO_CR1 0x40004301
+
+// TRM 1.3.44 External 32kHz Crystal Oscillator Control
+#define REG_SLOWCLK_X32_CR 0x40004308
+
+// TRM 1.3.45 External 32kHz Crystal Oscillator Configuration
+#define REG_SLOWCLK_X32_CFG 0x40004309
+
+// TRM 1.3.46 External 32kHz Crystal Oscillator Test
+#define REG_SLOWCLK_X32_TST 0x4000430A
+
+// TRM 1.3.47 Boost Control 0
+#define REG_BOOST_CR0 0x40004320
+
+// TRM 1.3.48 Boost Control 1
+#define REG_BOOST_CR1 0x40004321
+
+// TRM 1.3.49 Boost Control 2
+#define REG_BOOST_CR2 0x40004322
+
+// TRM 1.3.50 Boost Control 3
+#define REG_BOOST_CR3 0x40004323
+
+// TRM 1.3.51 Boost Status
+#define REG_BOOST_STATUS 0x40004324
+
+// TRM 1.3.52 Power System Control Reg 0
+#define REG_PWRSYS_CR0 0x40004330
+
+// TRM 1.3.53 Power System Control Reg 1
+#define REG_PWRSYS_CR1 0x40004331
+
 // TRM 1.3.54-56 Timewheel Configuration
+#define REG_PM_TW_CFG0 0x40004380
+#define REG_PM_TW_CFG1 0x40004381
+#define REG_PM_TW_CFG2 0x40004382
 
 #define PM_TW_CFG2_FTW_EN       (1 << 0)
 #define PM_TW_CFG2_FTW_IE       (1 << 1)
@@ -172,6 +208,24 @@
 #define PM_TW_CFG2_CTW_IE       (1 << 3)
 #define PM_TW_CFG2_ONEPPS_EN    (1 << 4)
 #define PM_TW_CFG2_ONEPPS_IE    (1 << 5)
+
+// TRM 1.3.57 Watchdog Timer Configuration
+#define REG_PM_WDT_CFG 0x40004383
+
+// TRM 1.3.58 Watchdog Timer Control
+#define REG_PM_WDT_CR 0x40004384
+
+// TRM 1.3.59 Power Manager Interrupt Status
+#define REG_PM_INT_SR 0x40004390
+
+// TRM 1.3.60 Power Mode Configuration Reg 0
+#define REG_PM_MODE_CFG0 0x40004391
+
+// TRM 1.3.61 Power Mode Configuration Reg 1
+#define REG_PM_MODE_CFG1 0x40004392
+
+// TRM 1.3.62 Power Mode Control/Status
+#define REG_PM_MODE_CSR 0x40004393
 
 // TRM 1.3.63-74 Active Power Mode Configuration
 #define PM_CFG_NREGS 12
@@ -507,6 +561,14 @@
 // TRM 1.3.1216 BCLK_EN
 #define REG_BCTL0_MBCLK_EN 0x40015001
 #define REG_BCTL1_MBCLK_EN 0x40015011
+
+
+
+// ------------------------------
+// ARM Cortex M3 Common Registers
+// ------------------------------
+// Note: These are supported via CMSIS too
+
 
 // TRM 1.3.1381 CPU ID Base Register (32 bits)
 #define REG_NVIC_CPUID_BASE 0xE000ED00

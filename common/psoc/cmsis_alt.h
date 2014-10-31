@@ -1,5 +1,5 @@
-#ifndef _PSOC_SUPPORT_H
-#define _PSOC_SUPPORT_H
+#ifndef _CMSIS_ALT_H
+#define _CMSIS_ALT_H
 
 /*
     Copyright (C) 2014 Kim Lester
@@ -23,27 +23,15 @@
 #include <stdbool.h>
 
 
-#define PACKED __attribute__ ((packed))
+// Create two functions that are compatible with CMSIS library
+// but don't clash with the it if header file is not sued.
+// These exist here because they are the only functions needed
+// for a simple setup that are also in the CMSIS library.
 
+#define __enable_irq    enable_irq
+#define __disable_irq   disable_irq
 
-#define Set_Pin_Drive_Mode(pin, mode) \
-        REG_SET_BITS_8((pin), PRT_PC__DRIVE_MODE_MASK, (mode))
-#define Set_Pin(pin)    REG_OR_8((pin), PRT_PC__DATA_OUT)
-#define Clear_Pin(pin)  REG_CLEAR_BITS_8((pin), PRT_PC__DATA_OUT)
-
-#define Read_Pin_Raw(pin)   (REG_8((pin)) & PRT_PC__PIN_STATE)
-#define Read_Pin(pin)       (REG_8((pin)) & PRT_PC__PIN_STATE) >> PRT_PC__PIN_STATE_SBIT)
-
-
-void delay_cycles(uint32_t cycles); // defined in delay.s
-
-void halt(void);
-void soft_reset(void);
-
-uint32_t sysclock_ticks_per_ms(void);
-
-void delay_ms(uint32_t milliseconds);
-void delay_us(uint16_t microseconds);
-void set_delay_freq(uint32_t freq);
+void enable_irq(void);
+void disable_irq(void);
 
 #endif

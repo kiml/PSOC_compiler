@@ -152,6 +152,7 @@ void LCD_init_4bit(uint8_t lines, uint8_t font)
     data |= (font == LCD_FONT_5x10 ? HD44870_F_FONT_5x10 : HD44870_F_FONT_5x8); 
     LCD_write_byte(data, LCD_CONTROL); // lines and font
 
+    LCD_clear();  // Without clearing display contents remain over soft resets
     LCD_display_on(true);
 }
 

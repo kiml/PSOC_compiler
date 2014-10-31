@@ -1,15 +1,21 @@
-Demo 2a - LCD and LED
+Demo 3b - LCD and LED
 ---------------------
 This demo flashes LED2 at 0.5Hz and turns on LED1 whilst SW2 is pressed (P6_1)
 
+Differences from demo 3a:
+  * Replace startup_ARMCM3.S with startup_ARMCM3.c
+
 Key points:
   * Minimal system setup
-  * No config.hex (ie no config data)
-  * Busy wait to drive LED
+  * Uses enhanced config format (see Demo 2c/d)
+  * Full gcc.ld (from ARM but modified)
+  * Full startup_ARMCM3.c (from ARM but modified)
+  * Sets up SystemTick Event and Handler
+  * System goes to sleep between System clock (ms) ticks
 
 Code Dependencies:
   * Essentially no Cypress code
-  * No CMSIS
+  * Use CMSIS v1.3 (provided with PSoC) for core functions
 
 Hardware Setup:
   * Requires CYC8KIT-050

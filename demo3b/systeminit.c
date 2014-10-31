@@ -16,9 +16,11 @@
     along with this Program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "cmsis_alt.h"
+#include "core_cm3_psoc5.h"
+#include "core_cm3.h"
 #include "psoc5.h"
 #include "config.h"
+
 
 extern void app_config(void);
 
@@ -74,15 +76,29 @@ static void clock_setup(void)
 void SystemInit(void)
 {
     // NVIC Setup
-    REG_SET_32(REG_NVIC_APPLN_INTR, (NVIC_APPLN_INTR__VECTKEY__KEY | CONFIG_NVIC_PRIORITY_GROUP));
-    REG_OR_32(REG_NVIC_CFG_CONTROL, NVIC_CFG_CONTROL__STKALIGN);
+    NVIC_SetPriorityGrouping(4); // 4 is PRIGROUP__3_5 split
+    SCB->CCR |= (1 << SCB_CCR_STKALIGN_Pos);
 
-    __disable_irq();
+    clock_setup();
+
+    uint32_t ticks = sysclock_ticks_per_ms();
+    SysTick_Config(ticks); // so we have one software tick per 'ticks' hardware clock ticks
 
     // Enable cache and set flash_cycles assuming max clock (50-67MHz)
     REG_SET_8(REG_CACHE_CC_CTL, ((CONFIG_INSTRUCTION_CACHE_ENABLED) ? 0x01 : 0x00));
 
-    clock_setup();
-
     app_config();
+
+   __enable_irq(); // start clock ticking
 }
+
+
+uint32_t volatile msTicks; // Counter for millisecond Interval
+
+void SysTick_Handler(void)
+// SysTick Interrupt Handler. Overrides weak reference in startup_ARMCM3.S
+// Note this currently executes in ROM. We could move code to RAM for better performance
+{
+    msTicks++;
+}
+

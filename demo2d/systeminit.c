@@ -19,7 +19,6 @@
 #include "core_cm3_psoc5.h"
 #include "core_cm3.h"
 #include "psoc5.h"
-#include "baselib.h"
 #include "config.h"
 
 extern void app_config(void);
