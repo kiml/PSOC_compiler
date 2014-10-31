@@ -1,10 +1,11 @@
 #DEVICE_NAME = PSOC5LP-xxx
 CONFIG_HEX_PATH = config.hex
-
 CONFIG_SRC = config.conf
 OBJS = main.o startup_ARMCM3.o startup.o systeminit.o app_config.o
 
-# ---
+COMMON_INC_DIRS = hw psoc minilibc cmsis
+
+LIBS += -lcmsis
 
 CONFIG_BIN = $(CONFIG_SRC:%.conf=%.bin)
 CONFIG_HEX = $(CONFIG_SRC:%.conf=%.hex)
@@ -22,7 +23,7 @@ $(CONFIG_HEX): $(CONFIG_SRC)
 
 # This is a host (eg X86) debug compile - uses printf etc
 # avoid creating an X86 .o version of app_config.o (rather than an ARM version)
-test_app_config:  app_config.c
+app_config:  app_config.c
 	gcc -D DEBUG app_config.c -o $@
 
 $(CONFIG_BIN): $(CONFIG_SRC)

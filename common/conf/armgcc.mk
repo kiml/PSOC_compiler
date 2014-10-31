@@ -20,4 +20,4 @@ ASDEFS=
 ARCHFLAGS = -mcpu=cortex-m3 -march=armv7-m -mthumb -mthumb-interwork
 CFLAGS  = $(ARCHFLAGS) $(INCS) $(CDEFS) $(DEFS)
 ASFLAGS = $(ARCHFLAGS) $(INCS) $(ASDEFS) $(DEFS)
-LDSCRIPT = $(FILEDIR)gcc.ld
+LDSCRIPT ?= $(FILEDIR)gcc.ld

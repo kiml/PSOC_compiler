@@ -13,7 +13,7 @@ $(PROG).elf:  $(OBJS)
 	$(LD) -T $(LDSCRIPT) $(OBJS) $(LIBS) -o $@
 
 map: $(OBJS)
-	$(LD) -M -T $(LDSCRIPT) $(OBJS)
+	$(LD) -M -T $(LDSCRIPT) $(OBJS) $(LIBS)
 
 dump: $(PROG).elf
 	$(OBJDUMP) -x $<

@@ -164,6 +164,14 @@
 
 #define SLOWCLK_ILO__DIV3_EN    0x20
 
+// TRM 1.3.54-56 Timewheel Configuration
+
+#define PM_TW_CFG2_FTW_EN       (1 << 0)
+#define PM_TW_CFG2_FTW_IE       (1 << 1)
+#define PM_TW_CFG2_CTW_EN       (1 << 2)
+#define PM_TW_CFG2_CTW_IE       (1 << 3)
+#define PM_TW_CFG2_ONEPPS_EN    (1 << 4)
+#define PM_TW_CFG2_ONEPPS_IE    (1 << 5)
 
 // TRM 1.3.63-74 Active Power Mode Configuration
 #define PM_CFG_NREGS 12
@@ -500,8 +508,18 @@
 #define REG_BCTL0_MBCLK_EN 0x40015001
 #define REG_BCTL1_MBCLK_EN 0x40015011
 
-// TRM 1.3.1384 Application Interrupt and Reset Control
+// TRM 1.3.1381 CPU ID Base Register (32 bits)
+#define REG_NVIC_CPUID_BASE 0xE000ED00
+
+// TRM 1.3.1382 CPU ID Base Register (32 bits)
+#define REG_NVIC_INTR_CTRL_STATE 0xE000ED04
+
+// TRM 1.3.1383 Interrupt Control State Register (32 bits)
+#define REG_NVIC_VECT_OFFSET 0xE000ED08
+
+// TRM 1.3.1384 Application Interrupt and Reset Control (32 bits)
 #define REG_NVIC_APPLN_INTR 0xE000ED0C
+
 #define NVIC_APPLN_INTR__VECTKEY_SBIT  16
 #define NVIC_APPLN_INTR__VECTKEY_MASK  (0xFFFF << NVIC_APPLN_INTR__VECTKEY_SBIT)
 #define NVIC_APPLN_INTR__VECTKEY__KEY  (0x05FA << NVIC_APPLN_INTR__VECTKEY_SBIT)
