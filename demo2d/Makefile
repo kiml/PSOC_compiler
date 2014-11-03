@@ -17,7 +17,7 @@ clean::
 	$(RM) $(CONFIG_HEX) $(CONFIG_BIN)
 
 $(CONFIG_HEX): $(CONFIG_SRC)
-	$(UTILSPATH)/bin/gen_config -i $< | $(UTILSPATH)/bin/freehex2other -f intelhex -o $@
+	$(UTILSPATH)/bin/gen_config.py -i $< | $(UTILSPATH)/bin/freehex2other.py -f intelhex -o $@
 
 # Testing
 
@@ -27,7 +27,7 @@ app_config:  app_config.c
 	gcc -D DEBUG app_config.c -o $@
 
 $(CONFIG_BIN): $(CONFIG_SRC)
-	$(UTILSPATH)/bin/gen_config -i $(CONFIG_SRC) | $(UTILSPATH)/bin/freehex2other -f binary -o $(CONFIG_BIN)
+	$(UTILSPATH)/bin/gen_config.py -i $(CONFIG_SRC) | $(UTILSPATH)/bin/freehex2other.py -f binary -o $(CONFIG_BIN)
 
 test: test_app_config $(CONFIG_BIN)
 	./test_app_config $(CONFIG_BIN)

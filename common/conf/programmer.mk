@@ -1,7 +1,8 @@
 # Incoming Variables:
 # CONFIG_HEX_PATH  (optional)
 
-UTILSPATH = ~/projects/PSoC/programmer
+UTILSPATH = $(PSOC_PROG_DIR)
+#UTILSPATH = ~/projects/PSoC/programmer
 
 MERGEHEX = $(UTILSPATH)/bin/mergehex -nm $(UTILSPATH)/config/nm.hex
 BURNCMD = $(UTILSPATH)/bin/prog -C $(UTILSPATH)/config -d $(DEVICE_NAME) program
